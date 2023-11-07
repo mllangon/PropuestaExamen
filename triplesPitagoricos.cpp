@@ -10,5 +10,10 @@ int main(){
     printf("Ingrese el valor de b: ");
     scanf("%d", &b);
 
-    double c = sqrt (pow a , 2) + pow(b , 2);
+    double c = sqrt ( a * a + b * b);
+
+    if ( c == (int)c){
+        printf("%d-%d-%d es un triple pitagorico", a, b, (int)c);
+    }
+    return 0;
 }

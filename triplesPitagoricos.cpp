@@ -1,24 +1,30 @@
+#include <stdio.h>
+#include <math.h>
 
-#include<stdio.h>
-#include<math.h>
+int main() {
+    int max_number;
 
-int main(){
+    // Solicita al usuario que ingrese el número máximo para buscar triples pitagóricos
+    printf("Ingrese el número máximo para buscar triples pitagóricos: ");
+    scanf("%d", &max_number);
 
-    int a, b, c; //Declaramos los valores de a, b y c
+    // Imprime un encabezado para mostrar qué se está buscando
+    printf("Triples Pitagóricos hasta %d:\n", max_number);
 
-    printf("Ingrese el valor de a (o un 0 para salir): ");
-    scanf("%d", &a); //Leemos el valor de a
+    // Bucle para el primer lado 'a' del triángulo
+    for (int a = 1; a <= max_number; a++) {
+        // Bucle para el segundo lado 'b' del triángulo, empezando desde 'a' para evitar duplicados
+        for (int b = a; b <= max_number; b++) {
+            // Calcula el tercer lado 'c' usando el teorema de Pitágoras
+            int c = sqrt(a * a + b * b);
 
-    printf("Ingrese el valor de b: ");
-    scanf("%d", &b); //Leemos el valor de b
-
-    c = sqrt(pow(a, 2)+pow(b,2)); //Calculamos el valor de c
-
-    //Comprobamos si es un triple pitagorico
-    if (c * c == a * a + b * b) {
-        printf("%d - %d - %d es un triple pitagorico",a ,b ,c); //Imprimimos los valores del triple pitagorico
-    } else{
-        printf("No es un triple pitagorico"); //Imprimimos que no es un triple pitagorico
+            // Verifica si 'c' está dentro del rango máximo y si cumple con las condiciones de un triángulo
+            if (c <= max_number && a + b > c) {
+                // Si se cumplen las condiciones, imprime el triple pitagórico encontrado
+                printf("%d - %d - %d es un triple pitagórico.\n", a, b, c);
+            }
+        }
     }
+
     return 0;
 }

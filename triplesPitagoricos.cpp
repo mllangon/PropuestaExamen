@@ -2,7 +2,7 @@
 #include<math.h>
 
 int main(){
-    int a, b;
+    int a, b, c;
 
     printf("Ingrese el valor de a: ");
     scanf("%d", &a);
@@ -10,10 +10,10 @@ int main(){
     printf("Ingrese el valor de b: ");
     scanf("%d", &b);
 
-    double c = sqrt ( a * a + b * b);
+    c = sqrt (pow (a,2) + pow(b,2));
 
-    if ( c == (int)c){
-        printf("%d-%d-%d es un triple pitagorico", a, b, (int)c);
+    if ( c * c == a * a + b * b ){
+        printf("%d-%d-%d es un triple pitagorico", a, b, c);
     }
     return 0;
 }
